@@ -12,7 +12,7 @@ import com.example.tiowichoapp.ui.screens.HomeScreen
 @Composable
 fun NavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeScreen(navController) }
+        composable("home") { HomeScreen() }
         composable("details/{itemId}") { backStackEntry ->
             DetailsScreen(
                 itemId = backStackEntry.arguments?.getString("itemId"),

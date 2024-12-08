@@ -65,5 +65,14 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.coil.compose)
+    implementation(libs.androidx.core.ktx.v1120)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v262)
+    implementation(libs.androidx.activity.compose.v172)
+    implementation(libs.androidx.ui.v153)
+    implementation(libs.material3)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.runtime)
+    debugImplementation(libs.androidx.ui.tooling.v153)
+    debugImplementation(libs.ui.test.manifest)
 
 }
