@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.tiowichoapp.navigation.NavGraph
-import com.example.tiowichoapp.ui.theme.TioWichoAppTheme
+import com.example.tiowichoapp.ui.theme.TioWichoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    TioWichoAppTheme {
+    TioWichoTheme {
         Greeting("Android")
     }
 }

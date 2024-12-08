@@ -14,6 +14,8 @@ import com.example.tiowichoapp.ui.components.ListItem
 import com.example.tiowichoapp.ui.components.LoadingIndicator
 import com.example.tiowichoapp.viewmodels.HomeViewModel
 import com.example.tiowichoapp.data.states.ResourceState
+import androidx.compose.foundation.lazy.items
+
 
 @Composable
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
@@ -23,7 +25,10 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
         Box(modifier = Modifier.fillMaxSize().padding(padding)) {
             when (val state = itemsState) {
                 is ResourceState.Loading -> LoadingIndicator()
-                is ResourceState.Success -> ItemList(state.data, navController)
+                is ResourceState.Success -> {
+                    val itemList = state.data ?: emptyList()
+                    ItemList(itemList, navController)
+                }
                 is ResourceState.Error -> ErrorMessage(state.message)
             }
         }
@@ -35,7 +40,9 @@ fun ItemList(items: List<Item>, navController: NavController) {
     LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         items(items) { item ->
             ListItem(item = item, onClick = {
-                navController.navigate("details/${item.id}")
+                item.id?.let { id ->
+                    navController.navigate("details/$id")
+                }
             })
             Spacer(modifier = Modifier.height(8.dp))
         }
