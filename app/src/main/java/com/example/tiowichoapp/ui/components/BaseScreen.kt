@@ -3,11 +3,13 @@ package com.example.tiowichoapp.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -24,6 +26,7 @@ fun BaseScreen(
     Box(
         modifier = Modifier
             .fillMaxSize() // Ocupa todo el espacio de la pantalla // Fondo blanco
+            .background(Color.DarkGray)
     ) {
         // Imagen de fondo
         Image(
@@ -32,86 +35,144 @@ fun BaseScreen(
             modifier = Modifier.fillMaxSize(), // La imagen ocupa todo el espacio disponible
             contentScale = ContentScale.Crop // Ajusta cómo se escala la imagen
         )
+        // Superposición oscura
+        Box(
+            modifier = Modifier
+                .fillMaxSize() // Ocupa todo el espacio
+                .background(Color.Black.copy(alpha = 0.5f)) // Fondo negro semitransparente
+        )
+
         // Contenido principal de la pantalla
         Column(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            // Encabezado con el título
-            Row(
+            // Encabezado con el título dentro de un Box
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color(0xFFF44336))
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                    .clip(
+                        RoundedCornerShape(
+                            bottomStart = 30.dp,
+                            bottomEnd = 30.dp
+                        )
+                    ) // Bordes redondeados)
+                    .fillMaxWidth() // Ocupa todo el ancho disponible
+                    .background(Color(0xFFF44336)) // Fondo naranja
             ) {
-                Text(
-                    text = title,
-                    fontSize = 40.sp,
-                    modifier = Modifier.weight(1f)
-                )
-
-                IconButton(
-                    onClick = onMenuClick,
-                    modifier = Modifier.size(40.dp)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp), // Relleno dentro del Box
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.menu_icon),
-                        contentDescription = "Menú",
-                        modifier = Modifier.size(40.dp)
+                    Text(
+                        text = title,
+                        fontSize = 40.sp,
+                        modifier = Modifier.weight(1f) // Hace que el texto ocupe el espacio restante
+                            .align(Alignment.CenterVertically),
                     )
+
+                    IconButton(
+                        onClick = onMenuClick,
+                        modifier = Modifier.size(40.dp) // Tamaño del botón
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.menu_icon),
+                            contentDescription = "Menú",
+                            modifier = Modifier.size(40.dp) // Tamaño del ícono
+                        )
+                    }
                 }
             }
+
 
             // Contenido variable proporcionado por cada pantalla
             content()
         }
 
-        // Fila para los tres botones en la parte inferior
-        Row(
+        // Box que contiene los botones, alineado en la parte inferior
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .background(Color(0xFFF44336))
-                .padding(16.dp)
-                .align(Alignment.BottomCenter), // Ubica la fila en la parte inferior del dispositivo
-            horizontalArrangement = Arrangement.SpaceEvenly, // Espaciado uniforme entre los botones
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxWidth() // Ocupa todo el ancho disponible
+                .clip(
+                    RoundedCornerShape(
+                        bottomStart = 30.dp,
+                        bottomEnd = 30.dp,
+                        topStart = 30.dp,
+                        topEnd = 30.dp
+                    )
+                ) // Bordes redondeados)
+                .height(80.dp) // Ajusta la altura según sea necesario
+                .align(Alignment.BottomCenter) // Alinea este Box en la parte inferior de la pantalla
+                .background(Color(0xFFF44336)) // Fondo rojo
+                .padding(horizontal = 16.dp) // Espaciado interno horizontal
         ) {
-            // Botón Imagen 1
-            IconButton(
-                onClick = { /* Acción del botón 1 */ },
-                modifier = Modifier.size(64.dp)
+            // Fila para los tres botones
+            Row(
+                modifier = Modifier.fillMaxSize(), // Ocupa todo el tamaño del Box rojo
+                horizontalArrangement = Arrangement.SpaceEvenly, // Espaciado uniforme entre los botones
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.home_icon), // Reemplaza con tu recurso de imagen
-                    contentDescription = "Botón 1",
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+                // Botón Imagen 1
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally // Centra el contenido en la columna
+                ) {
+                    IconButton(
+                        onClick = { /* Acción del botón 1 */ },
+                        modifier = Modifier.size(48.dp) // Icono más pequeño
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.home_icon),
+                            contentDescription = "Botón 1"
+                        )
+                    }
+                    Text(
+                        text = "Inicio",
+                        fontSize = 18.sp, // Texto un poco más grande
+                        color = Color.Black // Cambia el color según el diseño
+                    )
+                }
 
-            // Botón Imagen 2
-            IconButton(
-                onClick = { /* Acción del botón 2 */ },
-                modifier = Modifier.size(64.dp)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.escaner_icon), // Reemplaza con tu recurso de imagen
-                    contentDescription = "Botón 2",
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+                // Botón Imagen 2
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    IconButton(
+                        onClick = { /* Acción del botón 2 */ },
+                        modifier = Modifier.size(48.dp) // Icono más pequeño
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.escaner_icon),
+                            contentDescription = "Botón 2"
+                        )
+                    }
+                    Text(
+                        text = "Escanear",
+                        fontSize = 18.sp, // Texto un poco más grande
+                        color = Color.Black
+                    )
+                }
 
-            // Botón Imagen 3
-            IconButton(
-                onClick = { /* Acción del botón 3 */ },
-                modifier = Modifier.size(64.dp)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.sale_icon), // Reemplaza con tu recurso de imagen
-                    contentDescription = "Botón 3",
-                    modifier = Modifier.fillMaxSize()
-                )
+                // Botón Imagen 3
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    IconButton(
+                        onClick = { /* Acción del botón 3 */ },
+                        modifier = Modifier.size(48.dp) // Icono más pequeño
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.sale_icon),
+                            contentDescription = "Botón 3"
+                        )
+                    }
+                    Text(
+                        text = "Ofertas",
+                        fontSize = 18.sp, // Texto un poco más grande
+                        color = Color.Black
+                    )
+                }
             }
         }
     }

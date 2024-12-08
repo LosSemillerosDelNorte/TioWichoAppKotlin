@@ -3,17 +3,22 @@ package com.example.tiowichoapp.ui.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color.Companion.White
 
 private val LightColors = lightColors(
-    primary = PrimaryColor,
-    primaryVariant = PrimaryVariant,
-    secondary = SecondaryColor
+    primary = OrangeLight,
+    secondary = GreenLight,
+    onPrimary = White,
+    onSecondary = White,
+    onBackground = GrayDark
 )
 
 private val DarkColors = darkColors(
-    primary = PrimaryColor,
-    primaryVariant = PrimaryVariant,
-    secondary = SecondaryColor
+    primary = OrangeLight,
+    secondary = GreenLight,
+    onPrimary = GrayDark,
+    onSecondary = GrayDark,
+    onBackground = GrayDark
 )
 
 @Composable
