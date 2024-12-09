@@ -37,6 +37,9 @@ android {
     buildFeatures {
         compose = true
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -74,5 +77,7 @@ dependencies {
     implementation(libs.androidx.runtime)
     debugImplementation(libs.androidx.ui.tooling.v153)
     debugImplementation(libs.ui.test.manifest)
-
+    implementation (libs.zxing.android.embedded)
+    implementation (libs.core)
+    implementation (libs.androidx.navigation.compose.v281)
 }

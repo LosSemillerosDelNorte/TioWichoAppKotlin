@@ -14,17 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
+import androidx.navigation.NavHostController
 import com.example.tiowichoapp.R
 import com.example.tiowichoapp.ui.components.BaseScreen
 
 
 @Composable
-fun HomeScreen(innerPadding: PaddingValues) {
+fun HomeScreen(innerPadding: NavHostController) {
     // Estado para controlar la imagen seleccionada y si se muestra el diálogo
     var selectedImage by remember { mutableStateOf<Int?>(null) }
 
@@ -60,7 +59,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
             Box(
                 modifier = Modifier
                     .align(Alignment.TopCenter) // Centra horizontalmente
-                    .offset(y = 340.dp) // Ajusta la posición vertical
+                    .offset(y = 330.dp) // Ajusta la posición vertical
                     .fillMaxWidth()
                     .height(300.dp)
                     .clip(RoundedCornerShape(40.dp)) // Bordes redondeados
@@ -169,5 +168,5 @@ fun HomeScreen(innerPadding: PaddingValues) {
 )
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(PaddingValues(0.dp))
+    HomeScreen()
 }

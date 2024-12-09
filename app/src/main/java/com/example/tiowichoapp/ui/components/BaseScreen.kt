@@ -91,22 +91,13 @@ fun BaseScreen(
             content()
         }
 
-        // Box que contiene los botones, alineado en la parte inferior
         Box(
             modifier = Modifier
                 .fillMaxWidth() // Ocupa todo el ancho disponible
-                .clip(
-                    RoundedCornerShape(
-                        bottomStart = 30.dp,
-                        bottomEnd = 30.dp,
-                        topStart = 30.dp,
-                        topEnd = 30.dp
-                    )
-                ) // Bordes redondeados)
                 .height(80.dp) // Ajusta la altura según sea necesario
+                .clip(RoundedCornerShape(40.dp)) // Bordes redondeados
+                .background(Color(0xFFF44336)) // Fondo rojo después de `clip`
                 .align(Alignment.BottomCenter) // Alinea este Box en la parte inferior de la pantalla
-                .background(Color(0xFFF44336)) // Fondo rojo
-                .padding(horizontal = 16.dp) // Espaciado interno horizontal
         ) {
             // Fila para los tres botones
             Row(
@@ -175,5 +166,6 @@ fun BaseScreen(
                 }
             }
         }
+
     }
 }

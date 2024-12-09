@@ -1,8 +1,10 @@
 [versions]
 activityComposeVersion = "1.7.2"
-agp = "8.7.2"
+agp = "8.7.3"
+androidxNavigationCompose = "2.8.1"
 coilCompose = "2.4.0"
 converterGson = "2.9.0"
+core = "3.4.1"
 coreKtxVersion = "1.12.0"
 kotlin = "2.0.0"
 coreKtx = "1.10.1"
@@ -16,6 +18,7 @@ lifecycleRuntimeKtxVersion = "2.6.2"
 material = "1.7.5"
 material3 = "1.3.1"
 navigationCompose = "2.8.4"
+navigationComposeVersion = "2.7.1"
 retrofit = "2.9.0"
 runtime = "1.7.5"
 ui = "1.7.5"
@@ -24,6 +27,7 @@ material3Jvmstubs = "1.4.0-alpha04"
 runtimeLivedata = "1.7.5"
 uiToolingVersion = "1.5.3"
 uiVersion = "1.5.3"
+zxingAndroidEmbedded = "4.3.0"
 
 [libraries]
 androidx-activity-compose-v172 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
@@ -33,11 +37,14 @@ androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-ru
 androidx-lifecycle-runtime-ktx-v262 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+androidx-navigation-compose-v271 = { module = "androidx.navigation:navigation-compose", version.ref = "navigationComposeVersion" }
+androidx-navigation-compose-v281 = { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigationCompose" }
 androidx-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
 androidx-ui-tooling-v153 = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiToolingVersion" }
 androidx-ui-v153 = { module = "androidx.compose.ui:ui", version.ref = "uiVersion" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+core = { module = "com.google.zxing:core", version.ref = "core" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -59,6 +66,7 @@ ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiTooli
 androidx-material3-jvmstubs = { group = "androidx.compose.material3", name = "material3-jvmstubs", version.ref = "material3Jvmstubs" }
 androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiVersion" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
