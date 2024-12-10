@@ -6,9 +6,11 @@ import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,7 +18,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.google.zxing.integration.android.IntentIntegrator
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScannerScreen(
     onScannedResult: (String) -> Unit,
@@ -56,32 +57,4 @@ fun ScannerScreen(
         scannerLauncher.launch(integrator.createScanIntent())
     }
 
-    // UI de la pantalla
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Escáner QR") },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Volver"
-                        )
-                    }
-                }
-            )
-        }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            scannedContent?.let {
-                Text("Resultado del escaneo: $it")
-            } ?: Text("Esperando escaneo...")
-        }
-    }
 }

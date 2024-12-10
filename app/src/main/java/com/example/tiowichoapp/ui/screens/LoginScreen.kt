@@ -1,5 +1,6 @@
 package com.example.tiowichoapp.ui.screens
 
+import android.util.Patterns
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,10 +10,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,7 +43,7 @@ fun LoginScreen(innerPadding: PaddingValues, onLoginSuccess: () -> Unit) {
     ) {
         Text(
             text = "Inicio de Sesión",
-            style = MaterialTheme.typography.headlineMedium
+            style = MaterialTheme.typography.h1
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -52,7 +53,7 @@ fun LoginScreen(innerPadding: PaddingValues, onLoginSuccess: () -> Unit) {
             value = username,
             onValueChange = {
                 username = it
-                isEmailValid = android.util.Patterns.EMAIL_ADDRESS.matcher(it.text).matches()
+                isEmailValid = Patterns.EMAIL_ADDRESS.matcher(it.text).matches()
             },
             label = { Text("Correo Electrónico") },
             isError = !isEmailValid,
@@ -61,8 +62,8 @@ fun LoginScreen(innerPadding: PaddingValues, onLoginSuccess: () -> Unit) {
         if (!isEmailValid && username.text.isNotEmpty()) {
             Text(
                 text = "Correo inválido",
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall
+                color = MaterialTheme.colors.error,
+                style = MaterialTheme.typography.body1
             )
         }
 
@@ -84,8 +85,8 @@ fun LoginScreen(innerPadding: PaddingValues, onLoginSuccess: () -> Unit) {
         if (!isPasswordValid && password.text.isNotEmpty()) {
             Text(
                 text = "Contraseña requerida",
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall
+                color = MaterialTheme.colors.error,
+                style = MaterialTheme.typography.body1
             )
         }
 
@@ -111,8 +112,8 @@ fun LoginScreen(innerPadding: PaddingValues, onLoginSuccess: () -> Unit) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = "Correo o contraseña incorrectos",
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall
+                color = MaterialTheme.colors.error,
+                style = MaterialTheme.typography.body1
             )
         }
     }
