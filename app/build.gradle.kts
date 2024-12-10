@@ -72,7 +72,7 @@ dependencies {
     implementation(libs.coil.compose)
 
     // QR Scanner
-    implementation(libs.zxing.android.embedded)
+    implementation(libs.coil.compose.v270)
 
     // Testing
     testImplementation(libs.junit)
@@ -80,6 +80,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core.v361)
     androidTestImplementation(libs.ui.test.junit4)
 
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
     implementation(libs.animated.navigation.bar)
+    implementation(libs.core)
+    implementation (libs.zxing.android.embedded)
+
 }
 

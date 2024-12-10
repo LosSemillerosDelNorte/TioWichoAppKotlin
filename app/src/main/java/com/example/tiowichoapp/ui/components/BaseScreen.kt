@@ -20,83 +20,74 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.tiowichoapp.R
 import com.example.tiowichoapp.ui.screens.HomeScreen
 import com.example.tiowichoapp.ui.theme.TioWichoTheme
+import com.example.tiowichoapp.ui.utils.Screens
 
 @Composable
 fun BaseScreen(
     title: String = "TioWichoApp",
     onMenuClick: () -> Unit = {},
+    currentRoute: String? = null, // Nueva propiedad para identificar la ruta actual
     content: @Composable () -> Unit
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxSize() // Ocupa todo el espacio de la pantalla // Fondo blanco
-            .background(MaterialTheme.colors.background)
+        modifier = Modifier.fillMaxSize() // Ocupa todo el espacio de la pantalla
     ) {
-        // Imagen de fondo
-        Image(
-            painter = painterResource(id = R.drawable.oeste_fondo), // Tu recurso de imagen
-            contentDescription = null, // Sin descripción para imágenes decorativas
-            modifier = Modifier.fillMaxSize(), // La imagen ocupa todo el espacio disponible
-            contentScale = ContentScale.Crop // Ajusta cómo se escala la imagen
-        )
-        // Superposición oscura
-        Box(
-            modifier = Modifier
-                .fillMaxSize() // Ocupa todo el espacio
-                .background(Color.Black.copy(alpha = 0.5f)) // Fondo negro semitransparente
-        )
+        // Imagen de fondo (solo para la pantalla "Home")
+        if (currentRoute == Screens.Home.route) {
+            Image(
+                painter = painterResource(id = R.drawable.oeste_fondo),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
 
-        // Contenido principal de la pantalla
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
-            // Encabezado con el título dentro de un Box
+            // Superposición oscura (opcional)
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.5f))
+            )
+        }
+
+        // Contenido principal
+        Column(modifier = Modifier.fillMaxSize()) {
+            // Encabezado con el título
             Box(
                 modifier = Modifier
                     .clip(
-                        RoundedCornerShape(
-                            bottomStart = 30.dp,
-                            bottomEnd = 30.dp
-                        )
-                    ) // Bordes redondeados)
-                    .fillMaxWidth() // Ocupa todo el ancho disponible
-                    .background(MaterialTheme.colors.primary) // Fondo naranja
-                    .statusBarsPadding() // Añade padding para respetar la barra de notificaciones
+                        RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp)
+                    )
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colors.primary)
+                    .statusBarsPadding()
             ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp), // Relleno dentro del Box
+                        .padding(16.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = title,
                         fontSize = 40.sp,
-                        modifier = Modifier.weight(1f) // Hace que el texto ocupe el espacio restante
-                            .align(Alignment.CenterVertically),
+                        modifier = Modifier.weight(1f),
                     )
-
                     IconButton(
                         onClick = onMenuClick,
-                        modifier = Modifier.size(40.dp) // Tamaño del botón
+                        modifier = Modifier.size(40.dp)
                     ) {
                         Image(
                             painter = painterResource(id = R.drawable.menu_icon),
                             contentDescription = "Menú",
-                            modifier = Modifier.size(40.dp) // Tamaño del ícono
+                            modifier = Modifier.size(40.dp)
                         )
                     }
                 }
             }
 
-
-            // Contenido variable proporcionado por cada pantalla
+            // Contenido proporcionado por la pantalla
             content()
         }
-
-
     }
 }
-
