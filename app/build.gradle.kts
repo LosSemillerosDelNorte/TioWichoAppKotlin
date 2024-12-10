@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.tiowichoapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.tiowichoapp"
@@ -43,40 +43,43 @@ android {
 }
 
 dependencies {
+    // Core AndroidX
+    implementation(libs.androidx.core.ktx.v1150)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v287)
+    implementation(libs.androidx.activity.compose.v193)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.runtime.livedata)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    // Compose Core
     implementation(libs.ui)
+    implementation(libs.androidx.ui.tooling.preview.v175)
+    implementation(libs.androidx.runtime.livedata.v153)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest.v175)
+
+    // Material Design
     implementation(libs.androidx.material)
-    implementation(libs.ui.tooling)
+    implementation(libs.androidx.material.icons.extended.v175)
+    implementation(libs.material3)
+    implementation(libs.androidx.material.v160alpha05)
+
+    // Navigation
     implementation(libs.androidx.navigation.compose)
+
+    // Retrofit for API
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.androidx.lifecycle.runtime.compose)
+
+    // Coil for image loading
     implementation(libs.coil.compose)
-    implementation(libs.androidx.core.ktx.v1120)
-    implementation(libs.androidx.lifecycle.runtime.ktx.v262)
-    implementation(libs.androidx.activity.compose.v172)
-    implementation(libs.androidx.ui.v153)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.androidx.runtime)
-    debugImplementation(libs.androidx.ui.tooling.v153)
-    debugImplementation(libs.ui.test.manifest)
-    implementation (libs.zxing.android.embedded)
-    implementation (libs.core)
-    implementation (libs.androidx.navigation.compose.v281)
+
+    // QR Scanner
+    implementation(libs.zxing.android.embedded)
+
+    // Testing
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v121)
+    androidTestImplementation(libs.androidx.espresso.core.v361)
+    androidTestImplementation(libs.ui.test.junit4)
+
     implementation(libs.animated.navigation.bar)
 }
+

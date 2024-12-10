@@ -1,12 +1,23 @@
 [versions]
 activityComposeVersion = "1.7.2"
 agp = "8.7.3"
+androidxActivityCompose = "1.9.3"
+androidxComposeMaterialMaterial = "1.6.0-alpha05"
+androidxCoreKtx = "1.15.0"
+androidxJunit = "1.2.1"
+androidxLifecycleRuntimeKtx = "2.8.7"
+androidxMaterial = "1.5.3"
+androidxMaterial3 = "1.2.0"
+androidxMaterialVersion = "1.5.1"
 androidxNavigationCompose = "2.8.1"
+androidxUi = "1.5.1"
+androidxUiTooling = "1.5.1"
 animatedNavigationBar = "1.0.0"
 coilCompose = "2.4.0"
 converterGson = "2.9.0"
 core = "3.4.1"
 coreKtxVersion = "1.12.0"
+espressoCoreVersion = "3.6.1"
 kotlin = "2.0.0"
 coreKtx = "1.10.1"
 junit = "4.13.2"
@@ -18,32 +29,59 @@ composeBom = "2024.04.01"
 lifecycleRuntimeKtxVersion = "2.6.2"
 material = "1.7.5"
 material3 = "1.3.1"
+materialIconsExtended = "1.5.1"
+materialIconsExtendedVersion = "1.7.5"
+materialVersion = "1.8.0-alpha06"
 navigationCompose = "2.8.4"
 navigationComposeVersion = "2.7.1"
 retrofit = "2.9.0"
 runtime = "1.7.5"
+runtimeLivedataVersion = "1.5.3"
 ui = "1.7.5"
+uiTestJunit4 = "1.7.5"
+uiTestManifest = "1.7.5"
 uiTooling = "1.7.5"
 material3Jvmstubs = "1.4.0-alpha04"
 runtimeLivedata = "1.7.5"
+uiToolingPreview = "1.7.5"
 uiToolingVersion = "1.5.3"
 uiVersion = "1.5.3"
 zxingAndroidEmbedded = "4.3.0"
 
 [libraries]
 androidx-activity-compose-v172 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
+androidx-activity-compose-v193 = { module = "androidx.activity:activity-compose", version.ref = "androidxActivityCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-ktx-v1120 = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
+androidx-core-ktx-v1150 = { module = "androidx.core:core-ktx", version.ref = "androidxCoreKtx" }
+androidx-espresso-core-v361 = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
+androidx-junit-v121 = { module = "androidx.test.ext:junit", version.ref = "androidxJunit" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-runtime-ktx-v262 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
+androidx-lifecycle-runtime-ktx-v287 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycleRuntimeKtx" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
+androidx-material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "androidxMaterialVersion" }
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "androidxMaterial" }
+androidx-material-icons-extended-v151 = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-material-icons-extended-v175 = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtendedVersion" }
+androidx-material-v151 = { module = "androidx.compose.material:material", version.ref = "androidxMaterialVersion" }
+androidx-material-v153 = { module = "androidx.compose.material:material", version.ref = "androidxMaterial" }
+androidx-material-v160alpha05 = { module = "androidx.compose.material:material", version.ref = "androidxComposeMaterialMaterial" }
+androidx-material-v180alpha06 = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
+androidx-material3-v120 = { module = "androidx.compose.material3:material3", version.ref = "androidxMaterial3" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-navigation-compose-v271 = { module = "androidx.navigation:navigation-compose", version.ref = "navigationComposeVersion" }
 androidx-navigation-compose-v281 = { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigationCompose" }
 androidx-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
+androidx-runtime-livedata-v153 = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "runtimeLivedataVersion" }
+androidx-ui-test-manifest-v175 = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiTestManifest" }
+androidx-ui-tooling-preview-v175 = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
+androidx-ui-tooling-v151 = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidxUiTooling" }
 androidx-ui-tooling-v153 = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiToolingVersion" }
+androidx-ui-v151 = { module = "androidx.compose.ui:ui", version.ref = "androidxUi" }
 androidx-ui-v153 = { module = "androidx.compose.ui:ui", version.ref = "uiVersion" }
 animated-navigation-bar = { module = "com.exyte:animated-navigation-bar", version.ref = "animatedNavigationBar" }
+animatednavbar = { module = "com.exyte.animatednavbar:animatednavbar", version.ref = "animatedNavigationBar" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 core = { module = "com.google.zxing:core", version.ref = "core" }
@@ -63,6 +101,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
+ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
 ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiToolingVersion" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiTooling" }
 androidx-material3-jvmstubs = { group = "androidx.compose.material3", name = "material3-jvmstubs", version.ref = "material3Jvmstubs" }
