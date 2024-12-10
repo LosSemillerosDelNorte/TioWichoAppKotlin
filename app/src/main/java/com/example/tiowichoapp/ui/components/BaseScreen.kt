@@ -15,7 +15,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.tiowichoapp.R
+import com.example.tiowichoapp.ui.screens.HomeScreen
+import com.example.tiowichoapp.ui.theme.TioWichoTheme
 
 @Composable
 fun BaseScreen(

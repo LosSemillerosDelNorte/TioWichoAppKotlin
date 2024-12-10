@@ -8,11 +8,12 @@ import com.example.tiowichoapp.data.network.ApiClient
 import com.example.tiowichoapp.data.network.Repository
 import com.example.tiowichoapp.ui.screens.DetailsScreen
 import com.example.tiowichoapp.ui.screens.HomeScreen
+import com.example.tiowichoapp.ui.utils.Screens
 
 @Composable
 fun NavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeScreen(
+        composable(Screens.Home.route) { HomeScreen(
             innerPadding = TODO()
         ) }
         composable("details/{itemId}") { backStackEntry ->

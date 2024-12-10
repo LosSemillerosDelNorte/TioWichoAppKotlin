@@ -17,13 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.tiowichoapp.R
 import com.example.tiowichoapp.ui.components.BaseScreen
 
 
 @Composable
-fun HomeScreen(innerPadding: NavHostController) {
+fun HomeScreen(innerPadding: PaddingValues) {
     // Estado para controlar la imagen seleccionada y si se muestra el diálogo
     var selectedImage by remember { mutableStateOf<Int?>(null) }
 
@@ -100,63 +99,6 @@ fun HomeScreen(innerPadding: NavHostController) {
                 }
             }
 
-            // Barra inferior con botones
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(100.dp) // Altura de la barra
-                    .align(Alignment.BottomCenter) // Posiciona la barra en la parte inferior
-                    .background(Color(0xFFF44336)) // Fondo rojo
-                    .padding(horizontal = 16.dp) // Espaciado lateral
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    // Botón Inicio
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        IconButton(
-                            onClick = { /* Acción del botón */ },
-                            modifier = Modifier.size(48.dp)
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.home_icon),
-                                contentDescription = "Inicio"
-                            )
-                        }
-                        Text("Inicio", fontSize = 14.sp, color = Color.White)
-                    }
-
-                    // Botón Escanear
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        IconButton(
-                            onClick = { /* Acción del botón */ },
-                            modifier = Modifier.size(48.dp)
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.escaner_icon),
-                                contentDescription = "Escanear"
-                            )
-                        }
-                        Text("Escanear", fontSize = 14.sp, color = Color.White)
-                    }
-
-                    // Botón Ofertas
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        IconButton(
-                            onClick = { /* Acción del botón */ },
-                            modifier = Modifier.size(48.dp)
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.sale_icon),
-                                contentDescription = "Ofertas"
-                            )
-                        }
-                        Text("Ofertas", fontSize = 14.sp, color = Color.White)
-                    }
-                }
-            }
         }
     }
 }
@@ -168,5 +110,5 @@ fun HomeScreen(innerPadding: NavHostController) {
 )
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(innerPadding = PaddingValues())
 }

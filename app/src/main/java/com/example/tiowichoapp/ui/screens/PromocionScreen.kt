@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
-fun PromocionScreen(navController: NavHostController) {
+fun PromocionScreen(innerPadding: PaddingValues) {
     Column(
         modifier = Modifier
             .fillMaxSize()
