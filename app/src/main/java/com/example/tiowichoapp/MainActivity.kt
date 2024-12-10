@@ -39,14 +39,21 @@ class MainActivity : ComponentActivity() {
                         }
                     }) { innerPadding ->
                     NavHost(navController = navController, startDestination = Screens.Login.route) {
-
+                        composable(route = Screens.Login.route) {
+                            LoginScreen(
+                                innerPadding = PaddingValues(), // O usa innerPadding si es necesario
+                                onLoginSuccess = {
+                                    navController.navigate(Screens.Home.route) // Navega al Home al iniciar sesión correctamente
+                                }
+                            )
+                        }
                         composable(route = Screens.Home.route) {
                             HomeScreen(innerPadding = innerPadding)
                         }
                         composable(route = Screens.PedidoMesa.route) {
                             PedidoMesaScreen(innerPadding = innerPadding)
                         }
-                        composable(route = "promocion"){
+                        composable(route = Screens.Promocion.route) {
                             PromocionScreen(innerPadding = innerPadding)
                         }
                     }
