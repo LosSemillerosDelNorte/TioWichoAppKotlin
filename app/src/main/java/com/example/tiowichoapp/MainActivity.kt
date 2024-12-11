@@ -182,4 +182,10 @@ fun HomeScreenPreview() {
     TioWichoTheme {
         HomeScreen(innerPadding = PaddingValues())
     }
+
+
 }
+
+
+
+//hello por aqui coolabore, paolo 10/12/24:)
