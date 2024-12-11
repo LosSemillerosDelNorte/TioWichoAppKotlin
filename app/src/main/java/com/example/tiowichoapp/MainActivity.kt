@@ -66,7 +66,6 @@ class MainActivity : ComponentActivity() {
                                 Screens.Home.route -> 0
                                 Screens.Scanner.route -> 1
                                 Screens.Promocion.route -> 2
-                                Screens.PedidoMesa.route -> 3
                                 else -> 0
                             }
                             AnimatedNavigationBar(
