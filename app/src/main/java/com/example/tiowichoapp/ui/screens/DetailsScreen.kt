@@ -2,9 +2,8 @@ package com.example.tiowichoapp.ui.screens
 
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tiowichoapp.data.models.Item
+import com.example.tiowichoapp.data.models.Productos
 import com.example.tiowichoapp.data.network.Repository
 import com.example.tiowichoapp.data.states.ResourceState
 import com.example.tiowichoapp.ui.components.LoadingIndicator
@@ -12,7 +11,7 @@ import com.example.tiowichoapp.viewmodels.DetailsViewModel
 import com.example.tiowichoapp.viewmodels.ViewModelFactory
 
 @Composable
-fun DetailsScreen(itemId: String?, repository: Repository) {
+fun DetailsScreen(itemId: String?, repository: Repository<Any?>) {
     val factory = ViewModelFactory(repository)
     val viewModel: DetailsViewModel = viewModel(factory = factory)
 
@@ -30,7 +29,7 @@ fun DetailsScreen(itemId: String?, repository: Repository) {
     when (state) {
         is ResourceState.Loading -> LoadingIndicator()
         is ResourceState.Success -> {
-            val item = (state as ResourceState.Success<Item>).data
+            val item = (state as ResourceState.Success<Productos>).data
             ItemDetails(item)
         }
         is ResourceState.Error -> Text("Error: ${(state as ResourceState.Error).message}")
@@ -38,7 +37,7 @@ fun DetailsScreen(itemId: String?, repository: Repository) {
 }
 
 @Composable
-fun ItemDetails(item: Item?) {
+fun ItemDetails(item: Productos?) {
     item?.let {
         Text(
             text = "Title: ${it.title}\nDescription: ${it.description}",

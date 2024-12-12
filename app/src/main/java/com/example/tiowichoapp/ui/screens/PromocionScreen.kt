@@ -50,8 +50,9 @@ fun PromocionScreen(innerPadding: PaddingValues) {
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .offset(y = -80.dp)
+
                 .background(
-                    color = MaterialTheme.colors.background, // Color de fondo
+                    color = MaterialTheme.colors.onBackground.copy(alpha = 0.6f), // Color de fondo
                     shape = RoundedCornerShape(8.dp) // Bordes redondeados (opcional)
                 )
                 .padding(horizontal = 16.dp, vertical = 8.dp) // Espaciado interno

@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.tiowichoapp.R
+import com.example.tiowichoapp.ui.utils.Screens
 
 @Composable
 fun PedidoMesaScreen(innerPadding: PaddingValues, navController: NavHostController) {
@@ -59,7 +60,7 @@ fun PedidoMesaScreen(innerPadding: PaddingValues, navController: NavHostControll
                     .clip(RoundedCornerShape(40.dp))
                     .background(MaterialTheme.colors.onBackground.copy(alpha = 0.6f))
                     .clickable {
-                        navController.navigate("cocina")
+                        navController.navigate(Screens.Cocina.route)
                     },
                 contentAlignment = Alignment.Center
             ) {
@@ -90,7 +91,7 @@ fun PedidoMesaScreen(innerPadding: PaddingValues, navController: NavHostControll
                     .clip(RoundedCornerShape(40.dp))
                     .background(MaterialTheme.colors.onBackground.copy(alpha = 0.6f))
                     .clickable {
-                        navController.navigate("bar")
+                        navController.navigate(Screens.Bar.route)
                     },
                 contentAlignment = Alignment.Center
             ) {

@@ -1,5 +1,6 @@
 package com.example.tiowichoapp
 
+import Cocina
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,10 +16,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.QrCode2
-import androidx.compose.material.icons.filled.Scanner
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -32,7 +29,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.tiowichoapp.models.BottomNavigationItem
+import com.example.tiowichoapp.data.models.BottomNavigationItem
+import com.example.tiowichoapp.data.network.ApiClient
+import com.example.tiowichoapp.data.network.Repository
 import com.example.tiowichoapp.ui.screens.HomeScreen
 import com.example.tiowichoapp.ui.screens.LoginScreen
 import com.example.tiowichoapp.ui.screens.PedidoMesaScreen
@@ -41,6 +40,8 @@ import com.example.tiowichoapp.ui.screens.ScannerScreen
 import com.example.tiowichoapp.ui.theme.TioWichoTheme
 import com.example.tiowichoapp.ui.utils.Screens
 import com.example.tiowichoapp.ui.components.BaseScreen
+import com.example.tiowichoapp.ui.screens.Bar
+import com.example.tiowichoapp.viewmodels.ViewModelFactory
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.indendshape.shapeCornerRadius
 
@@ -49,6 +50,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val repository = Repository<Any>(ApiClient.apiService)
+            val viewModelFactory = ViewModelFactory(repository)
             val navController = rememberNavController()
             var selectedItem by rememberSaveable {
                 mutableIntStateOf(0)
@@ -156,11 +159,34 @@ class MainActivity : ComponentActivity() {
                             BaseScreen(
                                 title = "Escáner",
                                 currentRoute = currentRoute,
-                                onMenuClick = { /* Acción personalizada si es necesario */ }
+                                onMenuClick = {  }
                             ) {
                                 ScannerScreen(
                                     navController = navController
                                 )
+                            }
+                        }
+                        composable(route = Screens.Bar.route) {
+                            BaseScreen(
+                                title = "Categorías Bar",
+                                currentRoute = currentRoute,
+                                onMenuClick = { }
+                            ) {
+                                Bar(
+                                    navController = navController,
+                                    innerPadding = PaddingValues(), repository = repository)
+                            }
+                        }
+
+                        composable(route = Screens.Cocina.route) {
+                            BaseScreen(
+                                title = "Categorías Cocina",
+                                currentRoute = currentRoute,
+                                onMenuClick = { }
+                            ) {
+                                Cocina(
+                                    navController = navController,
+                                    innerPadding = PaddingValues(), repository = repository)
                             }
                         }
 

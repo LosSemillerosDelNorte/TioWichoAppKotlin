@@ -1,4 +1,4 @@
-package com.example.tiowichoapp.models
+package com.example.tiowichoapp.data.models
 
 data class Productos(
     val categoria: String,

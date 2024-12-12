@@ -1,4 +1,4 @@
-package com.example.tiowichoapp.models
+package com.example.tiowichoapp.data.models
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home

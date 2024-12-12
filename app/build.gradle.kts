@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.androidx.ui.tooling.preview.v175)
     implementation(libs.androidx.runtime.livedata.v153)
+    implementation(libs.androidx.media3.common.ktx)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest.v175)
 
