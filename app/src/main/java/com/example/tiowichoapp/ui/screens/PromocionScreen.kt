@@ -23,32 +23,45 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
 import com.example.tiowichoapp.R
 import com.example.tiowichoapp.ui.components.BaseScreen
+import com.example.tiowichoapp.ui.theme.TioWichoTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
 fun PromocionScreen(innerPadding: PaddingValues) {
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
+
+        Box(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .offset(y = -80.dp),
-            color = MaterialTheme.colors.secondary,
-            text = "¡Ofertas!",
-            style = MaterialTheme.typography.h2
-        )
+                .offset(y = -80.dp)
+                .background(
+                    color = MaterialTheme.colors.background, // Color de fondo
+                    shape = RoundedCornerShape(8.dp) // Bordes redondeados (opcional)
+                )
+                .padding(horizontal = 16.dp, vertical = 8.dp) // Espaciado interno
+        ) {
+            Text(
+                text = "¡Promoción!",
+                color = MaterialTheme.colors.secondary,
+                style = MaterialTheme.typography.h2
+            )
+        }
 
         // Estado del LazyRow
         val listState = rememberLazyListState()
@@ -128,5 +141,17 @@ fun ZoomableImageDialog(imageRes: Int, onDismiss: () -> Unit) {
                     .clickable { onDismiss() } // Cierra al hacer clic
             )
         }
+    }
+}
+
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    device = "spec:width=411dp,height=891dp"
+)
+@Composable
+fun PromocionScreenPreview() {
+    TioWichoTheme {
+        PromocionScreen(innerPadding = PaddingValues())
     }
 }

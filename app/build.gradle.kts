@@ -86,6 +86,5 @@ dependencies {
     implementation(libs.animated.navigation.bar)
     implementation(libs.core)
     implementation (libs.zxing.android.embedded)
-
 }
 

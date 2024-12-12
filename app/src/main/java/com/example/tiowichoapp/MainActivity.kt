@@ -129,7 +129,7 @@ class MainActivity : ComponentActivity() {
                             BaseScreen(
                                 title = "TioWichoApp",
                                 currentRoute = currentRoute, // Pasa la ruta actual al BaseScreen
-                                onMenuClick = { /* Acción */ }
+                                onMenuClick = {  }
                             ) {
                                 HomeScreen(innerPadding = innerPadding)
                             }
@@ -138,16 +138,16 @@ class MainActivity : ComponentActivity() {
                             BaseScreen(
                                 title = "Pedido de Mesa",
                                 currentRoute = currentRoute,
-                                onMenuClick = { /* Acción */ }
+                                onMenuClick = { }
                             ) {
-                                PedidoMesaScreen(innerPadding = innerPadding)
+                                PedidoMesaScreen(innerPadding = innerPadding, navController  = navController)
                             }
                         }
                         composable(route = Screens.Promocion.route) {
                             BaseScreen(
                                 title = "Promociones",
                                 currentRoute = currentRoute,
-                                onMenuClick = { /* Acción */ }
+                                onMenuClick = { }
                             ) {
                                 PromocionScreen(innerPadding = innerPadding)
                             }

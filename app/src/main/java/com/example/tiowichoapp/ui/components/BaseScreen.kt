@@ -32,10 +32,26 @@ fun BaseScreen(
     Box(
         modifier = Modifier.fillMaxSize() // Ocupa todo el espacio de la pantalla
     ) {
+
         // Imagen de fondo (solo para la pantalla "Home")
         if (currentRoute == Screens.Home.route) {
             Image(
                 painter = painterResource(id = R.drawable.oeste_fondo),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+
+            // Superposición oscura (opcional)
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.5f))
+            )
+        }
+        if (currentRoute == Screens.Promocion.route) {
+            Image(
+                painter = painterResource(id = R.drawable.fondooferta),
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
