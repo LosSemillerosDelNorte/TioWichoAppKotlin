@@ -31,3 +31,7 @@ fun TioWichoTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
         content = content
     )
 }
+
+
+
+//Por aqui tuvo poco que ver pero tambien paso Paolo 08/12/24:)

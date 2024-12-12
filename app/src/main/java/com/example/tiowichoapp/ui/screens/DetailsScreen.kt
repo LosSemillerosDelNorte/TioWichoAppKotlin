@@ -46,3 +46,6 @@ fun ItemDetails(item: Item?) {
         )
     }
 }
+
+
+//Por aqui paso Paolo 08/12/24 :)
